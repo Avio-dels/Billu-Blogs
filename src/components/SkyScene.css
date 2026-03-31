@@ -1,0 +1,148 @@
+.sky-scene {
+  position: relative;
+  min-height: 82vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  --parallax-x: 0px;
+  --parallax-y: 0px;
+}
+
+.sky-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    170deg,
+    #c8e6f5 0%,
+    #d6eaf8 25%,
+    #e8f4fb 45%,
+    #fdf6e3 75%,
+    #fdebd0 100%
+  );
+  z-index: 0;
+}
+
+/* ===== Clouds ===== */
+.sky-clouds {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transform: translate(var(--parallax-x), var(--parallax-y));
+  transition: transform 0.3s ease-out;
+}
+
+.cloud {
+  position: absolute;
+  left: -280px;
+  animation: drift-cloud linear infinite;
+}
+
+@keyframes drift-cloud {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(100vw + 360px)); }
+}
+
+.cloud-body {
+  border-radius: var(--radius-pill);
+  background: white;
+}
+
+.cloud-puff {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+
+/* --- Large Cloud --- */
+.cloud--large .cloud-body {
+  width: 200px;
+  height: 55px;
+  box-shadow: 0 6px 18px rgba(180,210,240,0.3);
+}
+.cloud--large .cloud-puff--1 {
+  width: 80px;
+  height: 80px;
+  top: -40px;
+  left: 35px;
+}
+.cloud--large .cloud-puff--2 {
+  width: 60px;
+  height: 60px;
+  top: -28px;
+  left: 100px;
+}
+
+/* --- Medium Cloud --- */
+.cloud--medium .cloud-body {
+  width: 140px;
+  height: 38px;
+  box-shadow: 0 4px 12px rgba(180,210,240,0.25);
+}
+.cloud--medium .cloud-puff--1 {
+  width: 55px;
+  height: 55px;
+  top: -28px;
+  left: 22px;
+}
+.cloud--medium .cloud-puff--2 {
+  width: 42px;
+  height: 42px;
+  top: -20px;
+  left: 70px;
+}
+
+/* --- Small Cloud --- */
+.cloud--small .cloud-body {
+  width: 90px;
+  height: 26px;
+  box-shadow: 0 3px 8px rgba(180,210,240,0.2);
+}
+.cloud--small .cloud-puff--1 {
+  width: 35px;
+  height: 35px;
+  top: -18px;
+  left: 14px;
+}
+.cloud--small .cloud-puff--2 {
+  width: 26px;
+  height: 26px;
+  top: -12px;
+  left: 45px;
+}
+
+/* ===== Meadow SVG ===== */
+.sky-meadow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  line-height: 0;
+}
+
+.sky-meadow svg {
+  width: 100%;
+  height: 120px;
+}
+
+/* ===== Content ===== */
+.sky-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 0 var(--space-md);
+  max-width: 680px;
+  animation: fade-up 1.2s ease both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

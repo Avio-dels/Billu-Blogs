@@ -1,0 +1,131 @@
+/* ===== Studio Ghibli Inspired Design System ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&family=Caveat:wght@400;600&display=swap');
+
+:root {
+  /* Color Palette */
+  --sky-light: #d6eaf8;
+  --sky-mid: #aed6f1;
+  --sky-dusk: #85c1e9;
+  --grass-light: #d5f5e3;
+  --grass-mid: #a9dfbf;
+  --moss: #82b74b;
+  --forest: #4a7c59;
+  --beige-warm: #fdf6e3;
+  --beige-mid: #f5e6c8;
+  --beige-deep: #e8d5b7;
+  --sunlight: #fdebd0;
+  --sunlight-deep: #f9d79f;
+  --amber: #c0842a;
+  --earth: #7d4a1a;
+  --cloud: #ffffff;
+  --cloud-soft: #f4f8fb;
+  --ink: #3d3628;
+  --ink-light: #6e6355;
+  --ink-faint: #a09585;
+  --shadow-warm: rgba(120, 80, 30, 0.1);
+  --shadow-deep: rgba(80, 50, 10, 0.18);
+
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  --font-accent: 'Caveat', 'Comic Sans MS', cursive;
+
+  /* Spacing */
+  --space-xs: 0.4rem;
+  --space-sm: 0.8rem;
+  --space-md: 1.6rem;
+  --space-lg: 3.2rem;
+  --space-xl: 6.4rem;
+
+  /* Borders */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 28px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --transition-gentle: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-breeze: 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background-color: var(--beige-warm);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+a {
+  color: var(--forest);
+  text-decoration: none;
+  transition: color var(--transition-gentle);
+}
+
+a:hover {
+  color: var(--amber);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
+  line-height: 1.3;
+  color: var(--forest);
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* ===== Container ===== */
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--beige-mid);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--grass-mid);
+  border-radius: var(--radius-pill);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--forest);
+}
+
+/* ===== Selection ===== */
+::selection {
+  background: var(--sunlight-deep);
+  color: var(--earth);
+}
